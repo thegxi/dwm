@@ -71,7 +71,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *flameshotcmd[] = {"flameshot", "gui", NULL };
+static const char *flameshotcmd[] = { "flameshot", "gui", NULL };
+static const char *cmusremoteplayercmd[] = { "cmus-remote", "-p", NULL };
+static const char *cmusremotepausecmd[] = { "cmus-remote", "-u", NULL };
+static const char *cmusremotenextcmd[] = { "cmus-remote", "-n", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -79,6 +82,9 @@ static Key keys[] = {
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_a,  	   togglescratch,  {.v = flameshotcmd } },
+	{ MODKEY|ShiftMask,             XK_p,  	   togglescratch,  {.v = cmusremoteplayercmd } },
+	{ MODKEY|ShiftMask,             XK_s,  	   togglescratch,  {.v = cmusremotepausecmd } },
+	{ MODKEY|ShiftMask,             XK_n,  	   togglescratch,  {.v = cmusremotenextcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
